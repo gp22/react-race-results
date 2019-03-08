@@ -84,6 +84,6 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({ captures: state.captures, readers: state.readers });
+const mapStateToProps = state => ({ captures: state.captures });
 
 export default connect(mapStateToProps, actions)(App);
