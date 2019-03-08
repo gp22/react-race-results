@@ -14,13 +14,23 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   font-family: OpenSans;
-  min-height: 100vh;
+  height: 100vh;
 `;
 
 const Title = styled.h1`
   font-weight: normal;
-  margin: 40px 0 0;
+  margin: 40px 0 20px;
   width: 800px;
+`;
+
+const TableWrapper = styled.div`
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 10px 30px 10px rgba(0,0,0,0.2);
+  height: 100%;
+  margin-bottom: 60px;
+  min-height: 400px;
+  overflow: hidden;
 `;
 
 const socket = openSocket('http://localhost:5000');
@@ -50,22 +60,24 @@ class App extends Component {
         <Normalize />
         <Container>
           <Title>Mooncascade Marathon Race Results</Title>
-          <RaceTable>
-            {sortedCaptures.map(capture => {
-              var timestamp = capture.secondCapture
-                ? new Date(capture.secondCapture.timestamp).toTimeString()
-                : null;
+          <TableWrapper>
+            <RaceTable>
+              {sortedCaptures.map(capture => {
+                var timestamp = capture.secondCapture
+                  ? new Date(capture.secondCapture.timestamp).toTimeString()
+                  : null;
 
-              return (
-                <RaceTableRow
-                  key={capture.id}
-                  number={capture.athlete.number}
-                  name={capture.athlete.name}
-                  timestamp={timestamp}
-                />
-              )
-            })}
-          </RaceTable>
+                return (
+                  <RaceTableRow
+                    key={capture.id}
+                    number={capture.athlete.number}
+                    name={capture.athlete.name}
+                    timestamp={timestamp}
+                  />
+                )
+              })}
+            </RaceTable>
+          </TableWrapper>
         </Container>
       </>
     );
