@@ -1,6 +1,7 @@
 # Sports Day Time Tracking Frontend
 
 Install and start the frontend and have it open in the browser before starting the backend.
+Navigate to client directory and execute the following command
 
     npm install && npm start
 
@@ -16,7 +17,7 @@ Python 3.5+.
 
 ## Installation
 
-Navigate to project directory and create a new virtual environment
+Navigate to server directory and create a new virtual environment
 
     python -m venv venv
 
